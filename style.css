@@ -846,3 +846,119 @@ scroll-behavior: auto !important;
 transition-duration: .01ms !important;
 }
 }
+/* =========================================
+19. FIX KÍCH THƯỚC ẢNH TRONG BÀI VIẾT
+========================================= */
+
+/* Ảnh đơn: 01, 05, 10... */
+.article-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: #f1f2f4;
+}
+
+/* Ảnh đôi */
+.image-pair .article-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+/* Ảnh ba */
+.image-triple .article-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 230px;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+/* Giữ nguyên ảnh 13 */
+.hero-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    max-height: none;
+}
+
+/* =========================================
+20. KHẮC PHỤC MÀU THANH ĐẦU TRANG
+========================================= */
+
+/* Thanh thông tin trên cùng */
+.top-strip {
+    background: #101d35 !important;
+    color: #dce4f0 !important;
+}
+
+.top-strip span {
+    color: #dce4f0 !important;
+}
+
+/* Thanh điều hướng */
+.site-header {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-bottom: 1px solid #e6e8ec;
+}
+
+/* Logo PR */
+.site-header .brand-mark {
+    background: #101d35 !important;
+    color: #ffffff !important;
+}
+
+/* Tên PR K26 */
+.site-header .brand-text strong {
+    color: #101d35 !important;
+}
+
+/* Dòng STUDENT NEWS */
+.site-header .brand-text small {
+    color: #778195 !important;
+}
+
+/* Các mục menu */
+.site-header .nav-link {
+    color: #596477 !important;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+    color: #101d35 !important;
+}
+
+/* Nút menu điện thoại */
+.site-header .menu-toggle {
+    background: #ffffff;
+}
+
+.site-header .menu-toggle span {
+    background: #101d35;
+}
+
+/* =========================================
+21. TỐI ƯU HIỂN THỊ TRÊN ĐIỆN THOẠI
+========================================= */
+
+@media (max-width: 560px) {
+    .article-figure img {
+        max-height: 280px;
+    }
+
+    .image-pair .article-figure img {
+        max-height: 190px;
+    }
+
+    .image-triple .article-figure img {
+        max-height: 200px;
+    }
+
+    .site-header .brand-text strong {
+        font-size: 15px;
+    }
+}
