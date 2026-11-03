@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="Bản tin chào đón tân sinh viên ngành Quan hệ công chúng K26 tại VOV College.">
+  <title>PR K26 | Hành trình đầu tiên tại VOV College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #142b43;
+      --muted: #637487;
+      --blue: #1769aa;
+      --blue-dark: #102a43;
+      --sky: #eaf5fc;
+      --orange: #f1a33c;
+      --paper: #ffffff;
+      --line: #e4ebf1;
+      --soft: #f5f8fb;
+      --radius: 18px;
+      --shadow: 0 14px 38px rgba(16, 42, 67, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f4f7fa;
+      font-family: "Be Vietnam Pro", sans-serif;
+      line-height: 1.75;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--blue), #53a8dc, var(--orange)); }
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(228,235,241,.9);
+    }
+    .nav-wrap {
+      max-width: 1160px; margin: auto; padding: 12px 24px;
+      min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center;
+      border-radius: 13px; color: white; background: var(--blue-dark);
+      font-weight: 800; letter-spacing: -1px;
+    }
+    .brand-name { font-weight: 800; font-size: 14px; line-height: 1.25; letter-spacing: .02em; }
+    .brand-sub { display: block; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-links a { color: #526579; font-size: 12px; font-weight: 700; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .menu-toggle {
+      display: none; border: 1px solid var(--line); background: white; color: var(--ink);
+      width: 42px; height: 42px; border-radius: 12px; font-size: 21px; cursor: pointer;
+    }
+    .container { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    .hero { padding: 42px 0 34px; }
+    .hero-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; color: var(--blue);
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .13em;
+    }
+    .eyebrow:before { content: ""; width: 24px; height: 2px; background: var(--orange); }
+    h1 {
+      margin: 15px 0 17px; max-width: 650px;
+      font-size: clamp(34px, 5vw, 56px); line-height: 1.14; letter-spacing: -.045em;
+      font-weight: 800;
+    }
+    h1 span { color: var(--blue); }
+    .hero-lead { color: #586b7e; font-size: 15px; max-width: 610px; margin: 0 0 22px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 9px 18px; color: var(--muted); font-size: 12px; font-weight: 600; }
+    .meta span { display: inline-flex; align-items: center; gap: 7px; }
+    .meta b { color: var(--ink); }
+    .hero-image {
+      position: relative; width: 100%; max-width: 620px; justify-self: end;
+      padding: 10px; background: white; border-radius: 22px;
+      box-shadow: var(--shadow); transform: rotate(1deg);
+    }
+    .hero-image img {
+      display: block; width: 100%; height: auto; max-height: none;
+      aspect-ratio: auto; object-fit: contain; border-radius: 15px;
+    }
+    .image-note { position: absolute; left: 22px; bottom: 20px; padding: 7px 12px; border-radius: 9px; background: rgba(16,42,67,.85); color: white; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+    .ticker { background: var(--blue-dark); color: white; }
+    .ticker-inner { max-width: 1100px; margin: auto; padding: 11px 20px; display: flex; align-items: center; gap: 14px; font-size: 11px; }
+    .ticker-label { color: #ffd18a; font-weight: 800; letter-spacing: .12em; white-space: nowrap; }
+    .ticker-text { opacity: .88; }
+    .article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 44px; padding: 54px 0 70px; align-items: start; }
+    article { min-width: 0; }
+    .article-intro { font-family: "DM Serif Display", serif; font-size: 23px; line-height: 1.45; color: #29445d; margin: 0 0 34px; }
+    .article-section { margin: 0 0 42px; }
+    .section-kicker { color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 7px; }
+    h2 { margin: 0 0 14px; font-size: 25px; line-height: 1.3; letter-spacing: -.025em; }
+    .article-section p { margin: 0 0 15px; color: #4e6174; font-size: 14px; }
+    .photo-grid { display: grid; gap: 13px; margin: 22px 0 10px; }
+    .photo-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .photo-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    figure { margin: 0; min-width: 0; }
+    figure img { width: 100%; height: auto; max-height: none; object-fit: contain; border-radius: 13px; background: #e7edf2; cursor: zoom-in; }
+    figure.wide img { height: auto; }
+    figcaption { color: #8291a0; font-size: 10px; line-height: 1.5; margin: 7px 2px 0; }
+    .photo-feature { width: 76%; max-width: 520px; margin: 22px auto; }
+    .photo-feature img {
+      display: block; width: 100%; height: auto; max-height: none;
+      aspect-ratio: auto; object-fit: contain; border-radius: 16px; cursor: zoom-in;
+    }
+    .quote-card { margin: 24px 0; padding: 22px 24px; border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; background: var(--sky); color: #34516c; }
+    .quote-card strong { display: block; font-size: 13px; margin-bottom: 5px; }
+    .quote-card p { margin: 0; font-size: 12px; }
+    .sidebar { position: sticky; top: 105px; }
+    .side-card { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 21px; margin-bottom: 16px; }
+    .side-title { margin: 0 0 13px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; }
+    .toc { display: grid; gap: 11px; }
+    .toc a { color: #64778a; font-size: 11px; font-weight: 600; line-height: 1.5; }
+    .toc a:hover { color: var(--blue); }
+    .event-facts { display: grid; gap: 12px; }
+    .fact { display: flex; gap: 10px; color: #627487; font-size: 11px; }
+    .fact b { display: block; color: var(--ink); font-size: 11px; }
+    .fact-icon { width: 28px; height: 28px; flex: 0 0 28px; display: grid; place-items: center; background: var(--sky); color: var(--blue); border-radius: 9px; font-size: 13px; }
+    .closing {
+      background: var(--blue-dark); color: white; border-radius: 20px; padding: 30px;
+      margin: 44px 0 0; position: relative; overflow: hidden;
+    }
+    .closing:after { content: "K26"; position: absolute; right: 15px; bottom: -38px; color: rgba(255,255,255,.06); font-size: 120px; font-weight: 800; }
+    .closing h2 { color: white; font-size: 24px; position: relative; z-index: 1; }
+    .closing p { color: #d0deea; max-width: 650px; font-size: 13px; margin: 0; position: relative; z-index: 1; }
+    .team-section { padding: 65px 0; background: white; border-top: 1px solid var(--line); }
+    .section-heading { text-align: center; margin-bottom: 30px; }
+    .section-heading .section-kicker { margin-bottom: 6px; }
+    .section-heading h2 { font-size: 29px; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .team-card { border: 1px solid var(--line); border-radius: 14px; padding: 17px 13px; background: #fff; text-align: center; }
+    .team-card .avatar { width: 68px; height: 68px; border-radius: 50%; object-fit: cover; margin: 0 auto 11px; background: linear-gradient(135deg, #eaf5fc, #d9e8f3); }
+    .team-card h3 { font-size: 12px; margin: 0 0 4px; }
+    .team-card p { color: var(--muted); font-size: 10px; margin: 0; line-height: 1.5; }
+    .team-card .member-number { color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .12em; margin-bottom: 5px; }
+    .team-card.leader { border-color: #c9dfef; background: #f8fcff; }
+    .team-card .member-role { display: inline-block; margin-top: 7px; padding: 4px 8px; border-radius: 20px; background: var(--sky); color: var(--blue); font-size: 9px; font-weight: 700; }
+    .image-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; padding: 24px; background: rgba(5, 16, 28, .94); align-items: center; justify-content: center; }
+    .image-lightbox.open { display: flex; }
+    .image-lightbox img { display: block; max-width: 96vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; border-radius: 6px; cursor: default; }
+    .lightbox-close { position: absolute; top: 14px; right: 20px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255,255,255,.14); color: white; font-size: 30px; line-height: 1; cursor: pointer; }
+    body.lightbox-open { overflow: hidden; }
+    footer { background: #0b2034; color: #d7e1ea; padding: 27px 20px; text-align: center; }
+    footer strong { display: block; font-size: 12px; letter-spacing: .08em; }
+    footer small { display: block; color: #9fb0bf; font-size: 10px; margin-top: 5px; }
+    .back-top { position: fixed; right: 20px; bottom: 20px; width: 42px; height: 42px; border: 0; border-radius: 50%; background: var(--blue); color: white; box-shadow: var(--shadow); cursor: pointer; font-size: 18px; }
+    @media (max-width: 800px) {
+      .nav-wrap { min-height: 68px; padding: 10px 18px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 15px 22px 20px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 15px; }
+      .nav-links.open { display: flex; }
+      .hero { padding-top: 30px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-image { max-width: 620px; width: 100%; margin: auto; justify-self: center; }
+      .article-layout { grid-template-columns: 1fr; gap: 25px; padding-top: 38px; }
+      .sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .side-card { margin: 0; }
+      .team-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 30px, 1100px); }
+      h1 { font-size: 36px; }
+      .hero-lead { font-size: 13px; }
+      .article-intro { font-size: 20px; }
+      h2 { font-size: 22px; }
+      .photo-grid.three { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .photo-feature { width: 92%; }
+      figure img, figure.wide img { height: auto; }
+      .image-lightbox { padding: 12px; }
+      .image-lightbox img { max-width: 98vw; max-height: 88vh; }
+      .lightbox-close { top: 8px; right: 10px; }
+      .sidebar { grid-template-columns: 1fr; }
+      .closing { padding: 24px 20px; }
+      .team-section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Về đầu trang">
+        <div class="brand-mark">PR</div>
+        <div>
+          <div class="brand-name">VOV COLLEGE</div>
+          <span class="brand-sub">Bản tin sinh viên · K26</span>
+        </div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#top">Trang chủ</a>
+        <a href="#article">Bài viết</a>
+        <a href="#moments">Khoảnh khắc</a>
+        <a href="#team">Ban thực hiện</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Tin tức · Đời sống sinh viên</div>
+          <h1>Tân sinh viên PR K26 và <span>hành trình đầu tiên</span> tại VOV College</h1>
+          <p class="hero-lead">Một cột mốc mới mở ra với những gương mặt mới, những trải nghiệm đầu tiên và kỳ vọng về hành trình học tập trong lĩnh vực Quan hệ công chúng.</p>
+          <div class="meta">
+            <span>◷ <b>01/11/2026</b></span>
+            <span>⌖ Hội trường VOV College</span>
+            <span>✎ Ban biên tập sinh viên</span>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/anh-13.jpg" alt="Poster chào đón tân sinh viên K26">
+          <div class="image-note">CHÀO ĐÓN TÂN SINH VIÊN K26</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-label">ĐIỂM NHẤN</span>
+        <span class="ticker-text">Chào đón một thế hệ sinh viên mới · Ngành Quan hệ công chúng · VOV College</span>
+      </div>
+    </div>
+
+    <div class="container article-layout" id="article">
+      <article>
+        <p class="article-intro">Ngày đầu tiên ở giảng đường không chỉ là một dấu mốc, mà còn là điểm khởi đầu cho hành trình học hỏi, trải nghiệm và trưởng thành của mỗi tân sinh viên.</p>
+
+        <section class="article-section" id="preparation">
+          <div class="section-kicker">01 / Trước giờ bắt đầu</div>
+          <h2>Không khí chuẩn bị trước chương trình</h2>
+          <p>Trước khi chương trình diễn ra, không gian hội trường được chuẩn bị với các thiết bị âm thanh, khu vực trưng bày và những vật phẩm phục vụ sự kiện. Những chi tiết phía sau hậu trường góp phần tạo nên diện mạo chung cho buổi gặp gỡ.</p>
+          <div class="photo-grid three">
+            <figure><img src="images/anh-03.jpg" alt="Thiết bị âm thanh được chuẩn bị"><figcaption>Ảnh 03 · Công tác chuẩn bị thiết bị</figcaption></figure>
+            <figure><img src="images/anh-02.jpg" alt="Chiếc cúp được đặt trên bàn"><figcaption>Ảnh 02 · Không gian hội trường</figcaption></figure>
+            <figure><img src="images/anh-01.jpg" alt="Sinh viên cầm bảng giới thiệu chương trình"><figcaption>Ảnh 01 · Hình ảnh giới thiệu chương trình</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="article-section" id="program">
+          <div class="section-kicker">02 / Dấu ấn chương trình</div>
+          <h2>Những khoảnh khắc tại hội trường</h2>
+          <p>Trong chương trình, sự chú ý hướng về những chia sẻ trên sân khấu và không khí tham dự của sinh viên. Mỗi góc nhìn ghi lại một phần của sự kiện: từ người phát biểu, khán phòng đến những khoảnh khắc được lưu lại qua ống kính điện thoại.</p>
+          <figure class="photo-feature wide">
+            <img src="images/anh-05.jpg" alt="Diễn giả phát biểu tại hội trường">
+            <figcaption>Ảnh 05 · Khoảnh khắc phát biểu tại chương trình</figcaption>
+          </figure>
+          <div class="photo-grid two">
+            <figure><img src="images/anh-06.jpg" alt="Toàn cảnh sinh viên tham dự"><figcaption>Ảnh 06 · Sinh viên tham dự chương trình</figcaption></figure>
+            <figure><img src="images/anh-04.jpg" alt="Sinh viên ghi lại chương trình bằng điện thoại"><figcaption>Ảnh 04 · Lưu lại những khoảnh khắc đáng nhớ</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="article-section" id="students">
+          <div class="section-kicker">03 / Sắc màu tân sinh viên</div>
+          <h2>Những gương mặt và năng lượng tuổi trẻ</h2>
+          <p>Bên cạnh nội dung trên sân khấu, hình ảnh sinh viên tương tác, giao lưu và cùng xuất hiện trong khung hình mang đến sắc màu gần gũi cho ngày gặp gỡ. Đây cũng là những khoảnh khắc đầu tiên để các bạn làm quen với môi trường học tập mới.</p>
+          <div class="photo-grid three">
+            <figure><img src="images/anh-07.jpg" alt="Sinh viên tương tác trong hội trường"><figcaption>Ảnh 07 · Không khí tương tác</figcaption></figure>
+            <figure><img src="images/anh-08.jpg" alt="Nhóm sinh viên tạo dáng"><figcaption>Ảnh 08 · Những gương mặt tân sinh viên</figcaption></figure>
+            <figure><img src="images/anh-11.jpg" alt="Sinh viên đứng giao lưu"><figcaption>Ảnh 11 · Khoảnh khắc giao lưu</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="article-section" id="moments">
+          <div class="section-kicker">04 / Những khoảnh khắc đáng nhớ</div>
+          <h2>Lưu giữ dấu ấn của ngày gặp gỡ</h2>
+          <p>Từ sân khấu đến khung hình tập thể và khu vực trưng bày, mỗi hình ảnh góp thêm một lát cắt cho câu chuyện chào đón tân sinh viên. Những tư liệu này có thể trở thành dấu mốc để PR K26 nhìn lại ngày đầu tiên của mình tại VOV College.</p>
+          <div class="photo-grid two">
+            <figure><img src="images/anh-10.jpg" alt="Nhóm người xuất hiện trên sân khấu"><figcaption>Ảnh 10 · Khoảnh khắc trên sân khấu</figcaption></figure>
+            <figure><img src="images/anh-09.jpg" alt="Ảnh tập thể tại hội trường"><figcaption>Ảnh 09 · Hình ảnh tập thể</figcaption></figure>
+          </div>
+          <figure class="photo-feature">
+            <img src="images/anh-12.jpg" alt="Bảng trưng bày hình ảnh">
+            <figcaption>Ảnh 12 · Góc trưng bày hình ảnh</figcaption>
+          </figure>
+        </section>
+
+        <div class="closing">
+          <h2>Một hành trình mới đang mở ra</h2>
+          <p>Chào mừng PR K26 đến với VOV College. Mong rằng quãng thời gian phía trước sẽ là hành trình của sự chủ động học hỏi, dám trải nghiệm, biết kết nối và từng bước tạo nên dấu ấn riêng trong lĩnh vực Quan hệ công chúng.</p>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <div class="side-card">
+          <h3 class="side-title">Trong bài viết</h3>
+          <nav class="toc">
+            <a href="#preparation">01. Không khí trước chương trình</a>
+            <a href="#program">02. Những khoảnh khắc tại hội trường</a>
+            <a href="#students">03. Sắc màu tân sinh viên</a>
+            <a href="#moments">04. Những khoảnh khắc đáng nhớ</a>
+          </nav>
+        </div>
+        <div class="side-card">
+          <h3 class="side-title">Thông tin sự kiện</h3>
+          <div class="event-facts">
+            <div class="fact"><span class="fact-icon">▦</span><div><b>Chương trình</b>Chào đón tân sinh viên PR K26</div></div>
+            <div class="fact"><span class="fact-icon">◷</span><div><b>Thời gian</b>01/11/2026</div></div>
+            <div class="fact"><span class="fact-icon">⌖</span><div><b>Địa điểm</b>Hội trường VOV College</div></div>
+            <div class="fact"><span class="fact-icon">✦</span><div><b>Đối tượng</b>Tân sinh viên ngành Quan hệ công chúng K26</div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="team-section" id="team">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Thực hiện nội dung</div>
+          <h2>Ban biên tập & nhóm thực hiện</h2>
+          <p style="margin:0;color:#718296;font-size:12px">Những thành viên tham gia xây dựng bản tin điện tử.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card leader"><div class="member-number">01</div><div class="avatar" aria-hidden="true"></div><h3>Võ Minh Phú</h3><p>Phân công công việc và theo dõi tiến độ thực hiện</p><span class="member-role">Trưởng nhóm</span></div>
+          <div class="team-card"><div class="member-number">02</div><div class="avatar" aria-hidden="true"></div><h3>Vũ Tuấn Anh</h3><p>Thiết kế và xây dựng nội dung</p></div>
+          <div class="team-card"><div class="member-number">03</div><div class="avatar" aria-hidden="true"></div><h3>Trần Hoài Bảo</h3><p>Lập trình website và thiết kế</p></div>
+          <div class="team-card"><div class="member-number">04</div><div class="avatar" aria-hidden="true"></div><h3>Lê Trang Phương Linh</h3><p>Kiểm tra và rà soát nội dung</p></div>
+          <div class="team-card"><div class="member-number">05</div><div class="avatar" aria-hidden="true"></div><h3>Lê Hoàng Nam</h3><p>Chụp ảnh và cung cấp tư liệu hình ảnh</p></div>
+          <div class="team-card"><div class="member-number">06</div><div class="avatar" aria-hidden="true"></div><h3>Cao Hữu Đạt</h3><p>Lên ý tưởng và xây dựng nội dung</p></div>
+          <div class="team-card"><div class="member-number">07</div><div class="avatar" aria-hidden="true"></div><h3>Nguyễn Thúy Hoa</h3><p>Phụ trách công tác hậu cần</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh phóng to">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Đóng ảnh">&times;</button>
+    <img id="lightboxImage" src="" alt="Ảnh phóng to">
+  </div>
+
+  <footer>
+    <strong>VOV COLLEGE · QUAN HỆ CÔNG CHÚNG K26</strong>
+    <small>Bản tin điện tử chào đón tân sinh viên · Nhóm thực hiện</small>
+  </footer>
+  <button class="back-top" id="backTop" aria-label="Lên đầu trang">↑</button>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+    document.getElementById("backTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Nhấn vào ảnh trong bài để xem toàn bộ ảnh ở kích thước lớn.
+    const imageLightbox = document.getElementById("imageLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function closeImageLightbox() {
+      imageLightbox.classList.remove("open");
+      document.body.classList.remove("lightbox-open");
+      lightboxImage.removeAttribute("src");
+    }
+
+    document.querySelectorAll("main img").forEach((image) => {
+      image.addEventListener("click", () => {
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt || "Ảnh phóng to";
+        imageLightbox.classList.add("open");
+        document.body.classList.add("lightbox-open");
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeImageLightbox);
+    imageLightbox.addEventListener("click", (event) => {
+      if (event.target === imageLightbox) closeImageLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && imageLightbox.classList.contains("open")) {
+        closeImageLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
