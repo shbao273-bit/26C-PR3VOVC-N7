@@ -1,6 +1,7 @@
-/* ==========================================
-   1. LẤY CÁC PHẦN TỬ HTML
-   ========================================== */
+/* =========================================
+1. LẤY CÁC PHẦN TỬ HTML
+========================================= */
+
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navItems = document.querySelectorAll(".nav-link");
@@ -12,30 +13,34 @@ const backToTop = document.getElementById("backToTop");
 ========================================= */
 
 function openMenu() {
-navLinks.classList.add("open");
-menuToggle.classList.add("is-open");
+  if (!navLinks || !menuToggle) return;
+  navLinks.classList.add("open");
+  menuToggle.classList.add("is-open");
 
-menuToggle.setAttribute("aria-expanded", "true");
-menuToggle.setAttribute("aria-label", "Đóng menu");
+  menuToggle.setAttribute("aria-expanded", "true");
+  menuToggle.setAttribute("aria-label", "Đóng menu");
 }
 
 function closeMenu() {
-navLinks.classList.remove("open");
-menuToggle.classList.remove("is-open");
+  if (!navLinks || !menuToggle) return;
+  navLinks.classList.remove("open");
+  menuToggle.classList.remove("is-open");
 
-menuToggle.setAttribute("aria-expanded", "false");
-menuToggle.setAttribute("aria-label", "Mở menu");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Mở menu");
 }
 
-menuToggle.addEventListener("click", function () {
-const menuIsOpen = navLinks.classList.contains("open");
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function () {
+    const menuIsOpen = navLinks.classList.contains("open");
 
-if (menuIsOpen) {
-closeMenu();
-} else {
-openMenu();
+    if (menuIsOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
 }
-});
 
 
 /* =========================================
@@ -43,9 +48,9 @@ openMenu();
 ========================================= */
 
 navItems.forEach(function (link) {
-link.addEventListener("click", function () {
-closeMenu();
-});
+  link.addEventListener("click", function () {
+    closeMenu();
+  });
 });
 
 
@@ -54,9 +59,9 @@ closeMenu();
 ========================================= */
 
 document.addEventListener("keydown", function (event) {
-if (event.key === "Escape") {
-closeMenu();
-}
+  if (event.key === "Escape") {
+    closeMenu();
+  }
 });
 
 
@@ -65,12 +70,13 @@ closeMenu();
 ========================================= */
 
 document.addEventListener("click", function (event) {
-const clickedInsideMenu = navLinks.contains(event.target);
-const clickedMenuButton = menuToggle.contains(event.target);
+  if (!navLinks || !menuToggle) return;
+  const clickedInsideMenu = navLinks.contains(event.target);
+  const clickedMenuButton = menuToggle.contains(event.target);
 
-if (!clickedInsideMenu && !clickedMenuButton) {
-closeMenu();
-}
+  if (!clickedInsideMenu && !clickedMenuButton) {
+    closeMenu();
+  }
 });
 
 
@@ -79,9 +85,9 @@ closeMenu();
 ========================================= */
 
 window.addEventListener("resize", function () {
-if (window.innerWidth > 800) {
-closeMenu();
-}
+  if (window.innerWidth > 800) {
+    closeMenu();
+  }
 });
 
 
@@ -89,57 +95,69 @@ closeMenu();
 7. NÚT QUAY LÊN ĐẦU TRANG
 ========================================= */
 
-window.addEventListener("scroll", function () {
-if (window.scrollY > 400) {
-backToTop.classList.add("visible");
-} else {
-backToTop.classList.remove("visible");
-}
-});
+if (backToTop) {
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 400) {
+      backToTop.classList.add("visible");
+    } else {
+      backToTop.classList.remove("visible");
+    }
+  });
 
-backToTop.addEventListener("click", function () {
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-});
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
 
 
 /* =========================================
-8. ĐÁNH DẤU MỤC ĐANG ĐƯỢC CHỌN
+8. ĐÁNH DẤU MỤC ĐANG ĐƯỢC CHỌN (TỐI ƯU HIỆU NĂNG)
 ========================================= */
 
 const sections = document.querySelectorAll(
-"#home, #article, #moments, #team"
+  "#home, #article, #moments, #team"
 );
 
 function updateActiveNavigation() {
-let currentSection = "home";
+  let currentSection = "home";
+  const scrollPosition = window.scrollY + 200; // Khoảng bù trừ để chuyểnactive mượt hơn
 
-sections.forEach(function (section) {
-const sectionTop = section.offsetTop - 150;
-const sectionBottom = sectionTop + section.offsetHeight;
+  sections.forEach(function (section) {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
 
-if (
-window.scrollY >= sectionTop &&
-window.scrollY < sectionBottom
-) {
-currentSection = section.getAttribute("id");
+    if (
+      scrollPosition >= sectionTop &&
+      scrollPosition < sectionTop + sectionHeight
+    ) {
+      currentSection = section.getAttribute("id");
+    }
+  });
+
+  navItems.forEach(function (link) {
+    link.classList.remove("active");
+    const linkTarget = link.getAttribute("href");
+
+    if (linkTarget === "#" + currentSection) {
+      link.classList.add("active");
+    }
+  });
 }
+
+// Sử dụng requestAnimationFrame để tránh giật lag khi cuộn trang liên tục
+let isScrolling = false;
+window.addEventListener("scroll", function () {
+  if (!isScrolling) {
+    window.requestAnimationFrame(function () {
+      updateActiveNavigation();
+      isScrolling = false;
+    });
+    isScrolling = true;
+  }
 });
-
-navItems.forEach(function (link) {
-link.classList.remove("active");
-
-const linkTarget = link.getAttribute("href");
-
-if (linkTarget === "#" + currentSection) {
-link.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll", updateActiveNavigation);
 
 window.addEventListener("load", updateActiveNavigation);
 
@@ -151,8 +169,8 @@ window.addEventListener("load", updateActiveNavigation);
 const allImages = document.querySelectorAll("img");
 
 allImages.forEach(function (image) {
-image.addEventListener("error", function () {
-image.classList.add("image-error");
-image.alt = "Không tìm thấy ảnh. Hãy kiểm tra tên và vị trí file ảnh.";
-});
+  image.addEventListener("error", function () {
+    image.classList.add("image-error");
+    image.alt = "Không tìm thấy ảnh. Hãy kiểm tra tên và vị trí file ảnh.";
+  });
 });
