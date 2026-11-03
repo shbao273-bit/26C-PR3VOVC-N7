@@ -1,7 +1,6 @@
-/* =========================================
-1. LẤY CÁC PHẦN TỬ HTML
-========================================= */
-
+/* ==========================================
+   1. LẤY CÁC PHẦN TỬ HTML
+   ========================================== */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navItems = document.querySelectorAll(".nav-link");
